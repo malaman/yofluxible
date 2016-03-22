@@ -4,11 +4,21 @@ class TestStore extends BaseStore {
     constructor(dispatcher) {
         super(dispatcher);
         this.testValue = '';
+        this.hoverCount = 0;
     }
 
     handleTestAction(testValue) {
         this.testValue = testValue + ' ';
         this.emitChange();
+    }
+
+    handleHoverAction() {
+        this.hoverCount = this.hoverCount + 1;
+        this.emitChange()
+    }
+
+    getHoverCount() {
+        return this.hoverCount;
     }
 
     getTestValue() {
@@ -19,7 +29,8 @@ class TestStore extends BaseStore {
 TestStore.storeName = 'TestStore';
 
 TestStore.handlers = {
-    'TEST_ACTION': 'handleTestAction'
+    'TEST_ACTION': 'handleTestAction',
+    'HOVER_ACTION': 'handleHoverAction'
 };
 
 export default TestStore;

@@ -6,3 +6,8 @@ export function testTwoAction(actionContext, payload) {
     actionContext.dispatch('TEST_TWO_ACTION', payload);
 }
 
+
+export function hoverAction(actionContext) {
+    actionContext.dispatch('HOVER_ACTION');
+}
+
